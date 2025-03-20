@@ -1,2 +1,13 @@
 python3-dev
-build-essential 
+build-essential
+libssl-dev
+zlib1g-dev
+libbz2-dev
+libreadline-dev
+libsqlite3-dev
+wget
+curl
+git
+python3.9
+python3.9-dev
+python3.9-distutils 

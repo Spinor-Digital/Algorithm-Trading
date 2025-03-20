@@ -1,0 +1,40 @@
+[build-system]
+requires = [
+    "setuptools>=69.0.0",
+    "wheel>=0.42.0",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eth-day-trading"
+version = "0.1.0"
+description = "ETH日交易算法系统"
+requires-python = ">=3.9"
+
+[tool.setuptools]
+include-package-data = true
+packages = []
+
+[tool.poetry]
+name = "eth-day-trading"
+version = "0.1.0"
+description = "ETH日交易算法系统"
+authors = ["Your Name <your.email@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+streamlit = "^1.31.0"
+pandas = "^2.2.0"
+numpy = "^1.26.0"
+matplotlib = "^3.8.0"
+plotly = "^5.18.0"
+scipy = "^1.12.0"
+scikit-learn = "^1.4.0"
+ccxt = "*"
+requests = "*"
+python-dateutil = "*"
+pytz = "*"
+websocket-client = "*"
+python-dotenv = "*"
+pandas-ta = "*"
+python-binance = "*" 
