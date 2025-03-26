@@ -7,6 +7,13 @@ print(f"Python版本: {sys.version}")
 print(f"Python路径: {sys.executable}")
 print(f"当前工作目录: {os.getcwd()}")
 
+# 检查Python版本
+py_version = sys.version_info
+required_version = (3, 9)
+if py_version.major > required_version[0] or (py_version.major == required_version[0] and py_version.minor > required_version[1]):
+    print(f"警告: 当前Python版本为{py_version.major}.{py_version.minor}，而推荐的版本是Python {required_version[0]}.{required_version[1]}")
+    print("某些功能可能不兼容，建议使用Python 3.9运行此应用")
+
 # 尝试解决distutils问题
 try:
     import distutils
@@ -50,4 +57,8 @@ except Exception as e:
             exec(f.read())
     except Exception as e2:
         print(f"执行app.py时出错: {e2}")
+        print("\n可能的解决方案:")
+        print("1. 确保安装了所有必要的依赖: pip install -r requirements.txt")
+        print("2. 检查API密钥配置是否正确")
+        print("3. 检查.env文件是否存在并包含必要的配置")
         raise 

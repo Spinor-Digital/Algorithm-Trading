@@ -48,11 +48,24 @@
 
 ### 环境要求
 
-- Python 3.8+
+- Python 3.9.16 (推荐)
 - pip (Python包管理器)
 - 交易所API密钥 (Binance, Deribit)
 
-### 安装说明
+### 快速安装（推荐）
+
+使用提供的自动化安装脚本：
+
+```bash
+./setup_venv.sh
+```
+
+这个脚本会：
+1. 检查并使用pyenv安装Python 3.9.16（如果已安装pyenv）
+2. 创建虚拟环境
+3. 安装所有依赖
+
+### 手动安装
 
 1. 克隆本仓库到本地:
 
@@ -61,25 +74,35 @@ git clone <仓库URL>
 cd eth_daytrader
 ```
 
-2. 安装必要的依赖包:
+2. 创建并激活虚拟环境:
 
 ```bash
+python3 -m venv venv
+source venv/bin/activate  # Linux/Mac
+# 或
+venv\Scripts\activate  # Windows
+```
+
+3. 安装必要的依赖包:
+
+```bash
+pip install --upgrade pip setuptools wheel
 pip install -r requirements.txt
 ```
 
-3. 创建环境变量文件 `.env`，设置API密钥:
+4. 创建环境变量文件 `.env`，设置API密钥:
 
 ```
-BINANCE_API_KEY=your_binance_api_key
-BINANCE_API_SECRET=your_binance_api_secret
-DERIBIT_API_KEY=your_deribit_api_key
-DERIBIT_API_SECRET=your_deribit_api_secret
+BINANCE_API_KEY=your_binance_api_key_here
+BINANCE_API_SECRET=your_binance_api_secret_here
+DERIBIT_API_KEY=your_deribit_api_key_here
+DERIBIT_API_SECRET=your_deribit_api_secret_here
 USE_TESTNET=True
-DEBUG=False
+DEBUG=True
 LOG_LEVEL=INFO
 ```
 
-4. 运行初始化脚本, 创建必要的目录结构:
+5. 运行初始化脚本, 创建必要的目录结构:
 
 ```bash
 python setup.py
@@ -90,10 +113,35 @@ python setup.py
 ### 启动应用
 
 ```bash
-streamlit run app.py
+source venv/bin/activate  # 激活虚拟环境
+streamlit run streamlit_app.py
 ```
 
 启动后，应用将在浏览器中打开 http://localhost:8501
+
+### 可能的问题及解决方案
+
+如果遇到Python版本不兼容的问题：
+
+1. 检查Python版本
+   ```
+   python --version
+   ```
+
+2. 如果不是Python 3.9.x，建议使用pyenv安装：
+   ```
+   # Mac
+   brew install pyenv
+   pyenv install 3.9.16
+   
+   # 设置本地版本
+   pyenv local 3.9.16
+   ```
+
+3. 如果遇到distutils相关错误，请确保setuptools已正确安装：
+   ```
+   pip install --upgrade setuptools wheel
+   ```
 
 ### 主要功能页面
 

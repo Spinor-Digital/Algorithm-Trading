@@ -13,5 +13,5 @@ font = "sans serif"
 gatherUsageStats = false
 
 [runner]
-# 指定使用 Python 3.9
-pythonVersion = "3.9" 
+# 指定使用 Python 3.9.16
+pythonVersion = "3.9.16" 
